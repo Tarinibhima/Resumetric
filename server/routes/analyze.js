@@ -67,11 +67,11 @@ router.post(
       });
 
       if (!mlResponse.ok) {
-const errText = await mlResponse.text();
-console.log("ML ERROR RESPONSE:", errText);
+        const errText = await mlResponse.text();
+        console.log("ML ERROR RESPONSE:", errText);
 
-return res.status(mlResponse.status).json({
-  error: errText || "Analysis service error.",
+        return res.status(mlResponse.status).json({
+          error: errText || "Analysis service error.",
         });
       }
 
