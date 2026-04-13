@@ -147,3 +147,6 @@ async def analyze(
         "resume_word_count": len(resume_text.split()),
         "jd_keyword_count": len(jd_keywords),
     }
+@app.get("/")
+def home():
+    return {"message": "ML API running 🚀"}
