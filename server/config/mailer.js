@@ -5,7 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 async function sendOTPEmail(to, name, otp) {
   await resend.emails.send({
     from: "Resumetric <onboarding@resend.dev>",
-    to: to,
+    to: "tarinibhima@gmail.com",
     subject: `${otp} is your Resumetric verification code`,
     html: `
       <h2>Hi ${name}</h2>
