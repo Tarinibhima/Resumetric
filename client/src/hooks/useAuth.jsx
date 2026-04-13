@@ -8,10 +8,10 @@ import axios from "axios";
 
 const AuthContext = createContext(null);
 
-const API = axious.create({
-  baseURL: (import.meta.env.VITE_API_URL
-|| "https://resumetric-bucc.onrender.com")
-+ "/api"
+const API = axios.create({
+  baseURL:
+    (import.meta.env.VITE_API_URL ||
+      "https://resumetric-buuc.onrender.com") + "/api",
 });
 
 console.log("API BASE:",
