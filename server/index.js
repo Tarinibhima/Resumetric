@@ -13,6 +13,7 @@ const authRoutes = require("./routes/auth");
 const analyzeRoutes = require("./routes/analyze");
 
 const app = express();
+app.set("trust proxy", 1);
 const PORT = process.env.PORT || 5000;
 
 // ─── Security Middleware ────────────────────────────────────────────────────
