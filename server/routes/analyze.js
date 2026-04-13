@@ -51,7 +51,9 @@ router.post(
       });
       form.append("job_description", job_description.trim());
 
-      const mlUrl = process.env.ML_SERVICE_URL || "http://localhost:8000";
+      const mlUrl = process.env.ML_SERVICE_URL;
+      console.log("ML URL:", mlUrl); 
+      
       const mlResponse = await fetch(`${mlUrl}/analyze`, {
         method: "POST",
         body: form,
