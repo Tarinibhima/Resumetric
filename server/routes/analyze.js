@@ -67,9 +67,11 @@ router.post(
       });
 
       if (!mlResponse.ok) {
-        const err = await mlResponse.json().catch(() => ({}));
-        return res.status(mlResponse.status).json({
-          error: err.detail || "Analysis service error.",
+const errText = await mlResponse.text();
+console.log("ML ERROR RESPONSE:", errText);
+
+return res.status(mlResponse.status).json({
+  error: errText || "Analysis service error.",
         });
       }
 
