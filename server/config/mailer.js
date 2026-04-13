@@ -16,13 +16,12 @@
  *   4. Use that as SMTP_PASS
  */
 console.log("EMAIL USER:", process.env.SMTP_USER);
-console.log("EMAIL PASS:", process.env.SMTP_PASS);
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || "smtp.gmail.com",
-  port: parseInt(process.env.SMTP_PORT || "587", 10),
-  secure: false, // true for 465, false for 587 (STARTTLS)
+  port: 465,          // ✅ CHANGE
+  secure: true,       // ✅ CHANGE
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
