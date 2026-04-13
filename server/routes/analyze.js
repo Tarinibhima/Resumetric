@@ -52,8 +52,14 @@ router.post(
       form.append("job_description", job_description.trim());
 
       const mlUrl = process.env.ML_SERVICE_URL;
-      console.log("ML URL:", mlUrl); 
-      
+
+      if (!mlUrl) {
+        console.error("❌ ML_SERVICE_URL is missing!");
+        return res.status(500).json({ error: "ML service URL not configured" });
+      }
+
+      console.log("✅ ML URL:", mlUrl);
+
       const mlResponse = await fetch(`${mlUrl}/analyze`, {
         method: "POST",
         body: form,
